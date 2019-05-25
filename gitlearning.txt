@@ -3,8 +3,15 @@ git config --global <infname> "the new inf"
 %if you use '--global' the inf will save in ~/.gitconfig.if not,it will save in you current directory%
 git config --list	:	see the inf 
 
+
+get help:
+git help <verb>
+git <verb> --help
+man git-<werb>
+
+
 git init
-git clone [url](example: git@git.lug.ustc.edu.cn:newphycoder/gewu-website.git )
+git clone [url](example: git@git.lug.ustc.edu.cn:newphycoder/gewu-website.git ) <foldername>
 
 
 working directory 	-> staging area 	:	git add <filename>/.(all file)
@@ -13,5 +20,18 @@ local repository	-> remote repository:	git push
 
 
 git status			:see the stage
+	git status -s/short
 git log 			:see the commit
 git diff <filename>	:see the difference between working dir and staging area
+
+
+unstage file:
+git reset HEAD <file>
+git rm --cached <file>
+
+
+ingore file(unnecessary):
+make a file named .gitignore
+then write the name of the file which you want to ingnore
+
+
