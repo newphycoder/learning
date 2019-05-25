@@ -1,0 +1,17 @@
+User inf:
+git config --global <infname> "the new inf"
+%if you use '--global' the inf will save in ~/.gitconfig.if not,it will save in you current directory%
+git config --list	:	see the inf 
+
+git init
+git clone [url](example: git@git.lug.ustc.edu.cn:newphycoder/gewu-website.git )
+
+
+working directory 	-> staging area 	:	git add <filename>/.(all file)
+staging area 		-> local repository	:	git commit -m 'commitname'
+local repository	-> remote repository:	git push
+
+
+git status			:see the stage
+git log 			:see the commit
+git diff <filename>	:see the difference between working dir and staging area
