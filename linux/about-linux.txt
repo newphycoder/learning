@@ -1,0 +1,2 @@
+apt-get update		更新目录
+apt-get upgrade		软件升级lcd
