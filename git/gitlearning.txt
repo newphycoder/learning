@@ -1,33 +1,87 @@
 User inf:
-git config --global <infname> "the new inf"
-%if you use '--global' the inf will save in ~/.gitconfig.if not,it will save in you current directory%
-git config --list	:	see the inf 
+git config --global <inf0name> "the new inf0"
+%if you use '--global',the inf will save in 
+~/.gitconfig.if not,it will save in you current 
+directory%
+git config --list	:	see the inf0 
 
 
 get help:
 git help <verb>
 git <verb> --help
-man git-<werb>
+man git-<verb>
 
 
+一般工作流程如下：
+	1.克隆 Git 资源作为工作目录。
+	2.在克隆的资源上添加或修改文件。
+	3.如果其他人修改了，你可以更新资源。
+	4.在提交前查看修改。
+	5.提交修改。
+	6.在修改完成后，如果发现错误，可以撤回提交并再次修改并提交。
+
+工作区：	就是你在电脑里能看到的目录。
+暂存区：	英文叫stage, 或index。一般存放在 ".git目录下" 
+		下的index文件（.git/index）中，所以我们把暂
+		存区有时也叫作索引（index）。
+版本库:	工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。
+
+
+创建仓库:
 git init
-git clone [url](example: git@git.lug.ustc.edu.cn:newphycoder/gewu-website.git ) <foldername>
+git init <repo>:使用指定目录作为Git仓库
+git commit -m '初始化项目版本'
+
+克隆仓库:
+git clone [url](example: git@git.lug.ustc.edu.cn:newphycoder/gewu-website.git ) <local foldername>
+将[url]换为仓库名即可克隆本地仓库(如无本地文件夹名,自动生成一个与仓
+库同名的子文件夹)
+
+working directory 	-> staging area 	:
+	git add <filename>/.(all file)
+staging area 		-> working directory:
+	git checkout .(all files)/--<file>
+	会用暂存区全部或指定的文件替换工作区的文件。这个操作很危险，
+	会清除工作区中未添加到暂存区的改动(只会修改added的文件)
+
+staging area 		-> local repository	:
+	git commit -m 'commitname' (m参数表示自动使用gitconfig信息)
+local repository	-> staging area		:
+	git reset HEAD (<file>)
+	暂存区的目录树会被重写，被 master 分支指向的目录树/
+	指定的文件所替换，但是工作区不受影响
+
+%工作区均不受影响%
+git reset HEAD:暂存区的目录树被master 分支指向的目录树所替换
+git rm --cached <file>:会直接从暂存区删除文件
+
+git checkout HEAD ./<file>
+	会用 HEAD 指向的 master 分支中的全部或者部分文件替换
+	暂存区和以及工作区中的文件。这个命令也是极具危险性的，因
+	为不但会清除工作区中未提交的改动，也会清除暂存区中未提交
+	的改动(只会修改已commit的文件)
+
+local repository	-> remote repository:
+	git push
+remote repository	-> local repository	:
+	git pull
 
 
-working directory 	-> staging area 	:	git add <filename>/.(all file)
-staging area 		-> local repository	:	git commit -m 'commitname'
-local repository	-> remote repository:	git push
-
-
-git status			:see the stage
+git status			 :see the stage
 	git status -s/short
-git log 			:see the commit
-git diff <filename>	:see the difference between working dir and staging area
+git log 			 :see the commit
 
 
-unstage file:
-git reset HEAD <file>
-git rm --cached <file>
+git diff (<filename>):
+	see the difference between working directory
+	and staging area
+git diff --cached:
+	see the difference between local repository
+	and staging area
+git diff HEAD:
+	see the difference between local repository
+	and working directory
+git diff -stat:显示摘要而非整个 diff
 
 
 ingore file(unnecessary):

@@ -1,0 +1,35 @@
+terminal中使用:“osascript scriptname”使用脚本
+
+
+脚本储存格式:
+	脚本:	拓展名.scpt
+			1.勾选了仅运行,不可再被编辑
+			2.未勾选,则默认打开方式为编辑器
+	脚本包:	拓展名.scptd,有包结构
+			其他和脚本一样
+	应用程序:拓展名为.app的程序
+	文本
+
+
+
+
+标识符:	unicode文字编码,不区分大小写
+		必须用英文字母开头,可用英文,下划线和数字组成
+		若标识符用|开头结尾,则可用一切unicode字符,标识符不含|
+
+关键字:
+
+
+
+
+数据类型:		boolean型:True & False
+			Number、Integer、Real
+			Text & String
+			Date
+			Constant:applescript预定义的变量或用户定义的不可变变量
+			List:有{}包裹的数据
+			Record:有名称的列表
+				(ex:{firstName:"iDoraemon", lastName:"Nathan"})
+确定数据类型:class of
+	ex: class of "string"  得到结果text
+强制类型转换: as: 数据 as 类型
