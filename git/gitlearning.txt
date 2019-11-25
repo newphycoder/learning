@@ -37,6 +37,7 @@ git clone [url](example: git@git.lug.ustc.edu.cn:newphycoder/gewu-website.git ) 
 将[url]换为仓库名即可克隆本地仓库(如无本地文件夹名,自动生成一个与仓
 库同名的子文件夹)
 
+
 working directory 	-> staging area 	:
 	git add <filename>/.(all file)
 staging area 		-> working directory:
@@ -46,14 +47,11 @@ staging area 		-> working directory:
 
 staging area 		-> local repository	:
 	git commit -m 'commitname' (m参数表示自动使用gitconfig信息)
+	git commit -a :自动add,提交
 local repository	-> staging area		:
 	git reset HEAD (<file>)
 	暂存区的目录树会被重写，被 master 分支指向的目录树/
 	指定的文件所替换，但是工作区不受影响
-
-%工作区均不受影响%
-git reset HEAD:暂存区的目录树被master 分支指向的目录树所替换
-git rm --cached <file>:会直接从暂存区删除文件
 
 git checkout HEAD ./<file>
 	会用 HEAD 指向的 master 分支中的全部或者部分文件替换
@@ -84,8 +82,16 @@ git diff HEAD:
 git diff -stat:显示摘要而非整个 diff
 
 
+git rm --cached <file>:会直接从暂存区删除文件,工作区不受影响
+git rm 从暂存区和工作区删除
+
+
+git mv <old file> <new file> :移动重命名文件
+
+
 ingore file(unnecessary):
 make a file named .gitignore
 then write the name of the file which you want to ingnore
 
 
+ 
