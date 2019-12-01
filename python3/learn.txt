@@ -1,0 +1,205 @@
+-c cmd	执行 Python 脚本，并将运行结果作为 cmd 字符串。
+
+
+python 通常是一行写完一条语句，但如果语句很长，
+我们可以使用反斜杠(\)来实现多行语句
+total = item_one + \
+        item_two + \
+        item_three
+在 [], {}, 或 () 中的多行语句，不需要使用反斜杠(\)，例如：
+total = ['item_one', 'item_two', 'item_three',
+        'item_four', 'item_five']
+
+
+导入相应的模块:import somemodule
+			from somemodule import firstfunc, \
+			secondfunc, thirdfunc
+
+
+Python允许你同时为多个变量赋值。例如：
+a = b = c = 1
+a, b, c = 1, 2, "runoob"
+
+
+标准数据类型:
+Number（数字）:int、float、bool、complex
+String（字符串）:	反斜杠(\)转义特殊字符，如果你不想让反斜杠发生转义，
+			   	可以在字符串前面添加一个 r，表示原始字符串
+			   	r'Ru\noob'
+
+			   	Python 字符串不能被改变。向一个索引位置赋值，
+			   	比如word[0] = 'm'会导致错误
+List（列表） 	   	列表是写在方括号 [] 之间、用逗号分隔开的元素列表
+			   	+ 是连接运算符，星号 * 是重复操作(适用于其他)
+			   	例:list + tinylist
+			   	   tinylist * 
+
+			   	与Python字符串不一样的是，列表中的元素是可以改变的
+			   	list(seq)	将元组转换为列表
+			   	tuple(seq)	将列表转换为元组
+Tuple（元组）    	元组（tuple）与列表类似，不同之处在于元组的元素不能修改
+			   	元组写在小括号 () 里，元素之间用逗号隔开
+
+			   	构造包含 0 个或 1 个元素的元组比较特殊，所以有一些额外的语法规则：
+				tup1 = ()    # 空元组
+				tup2 = (20,) # 一个元素，需要在元素后添加逗号
+
+				tuple的元素不可改变，但它可以包含可变的对象，比如list列表
+Set（集合） 		{ } 或者 set() 函数创建集合，注意：创建一个空集合必须用 
+				set() 而不是 { }，因为 { } 是用来创建一个空字典
+				a - b	# 集合a中包含而集合b中不包含的元素
+				a | b 	# 集合a或b中包含的所有元素
+				a & b 	# 集合a和b中都包含了的元素
+				a ^ b 	# 不同时包含于a和b的元素
+
+				add()	为集合添加元素,如果元素已存在，则不进行任何操作
+				update( x )	x 可以有多个，用逗号分开
+				clear()	移除集合中的所有元素
+				s.remove( x )	将元素 x 从集合 s 中移除，
+								如果元素不存在，则会发生错误。
+				s.discard( x )	移除集合中的元素，且如果元素不存在，不会发生错误
+Dictionary（字典):字典是一种映射类型，字典用 { } 标识，
+				它是一个无序的 键(key) : 值(value) 的集合
+				键(key)必须使用不可变类型行
+				在同一个字典中，键(key)必须是唯一的
+
+				del dict['Name'] # 删除键 'Name'
+				dict.clear()     # 清空字典
+				del dict         # 删除字典
+
+不可变数据（3 个）：Number（数字）、String（字符串）、Tuple（元组）
+可变数据（3 个）：List（列表）、Dictionary（字典）、Set（集合）
+
+Python数据类型转换:
+int(x [,base])	将x转换为一个整数
+float(x)	将x转换到一个浮点数
+complex(real [,imag])	创建一个复数
+str(x)	将对象 x 转换为字符串
+repr(x)	将对象 x 转换为表达式字符串
+eval(str)	用来计算在字符串中的有效Python表达式,并返回一个对象
+tuple(s)	将序列 s 转换为一个元组
+list(s)	将序列 s 转换为一个列表
+set(s)	转换为可变集合
+dict(d)	创建一个字典。d 必须是一个 (key, value)元组序列。
+frozenset(s)	转换为不可变集合
+chr(x)	将一个整数转换为一个字符
+ord(x)	将一个字符转换为它的整数值
+hex(x)	将一个整数转换为一个十六进制字符串
+oct(x)	将一个整数转换为一个八进制字符串
+
+
+print 默认输出是换行的，如果要实现不换行需要在变量末尾加上 end=""
+关键字end可以用于将结果输出到同一行，或者在输出的末尾添加不同的字符
+isinstance(a, int):isinstance()会认为子类是一种父类类型
+type(a)不会认为子类是一种父类类型
+
+
+:=	海象运算符，可在表达式内部为变量赋值
+这个示例中，赋值表达式可以避免调用 len() 两次:
+if (n := len(a)) > 10:
+    print(f"List is too long ({n} elements, expected <= 10)")
+
+Python逻辑运算符
+and  or  not
+
+Python成员运算符
+in	如果在指定的序列中找到值返回 True，否则返回 False
+not in	如果在指定的序列中没有找到值返回 True，否则返回 False
+
+Python身份运算符
+is 		 类似 id(x) == id(y)
+is not 	 类似 id(a) != id(b)
+注： id() 函数用于获取对象内存地址
+
+**	指数 (最高优先级)
+~ + -	按位翻转, 一元加号和减号 (最后两个的方法名为 +@ 和 -@)
+* / % //	乘，除，求余数和取整除
++ -	加法减法
+>> <<	右移，左移运算符
+&	位 'AND'
+^ |	位运算符
+<= < > >=	比较运算符
+== !=	等于运算符
+= %= /= //= -= += *= **=	赋值运算符
+is is not	身份运算符
+in not in	成员运算符
+not and or	逻辑运算符
+
+
+ %c	 格式化字符及其ASCII码
+ %s	 格式化字符串
+ %d	 格式化整数
+ %u	 格式化无符号整型
+ %o	 格式化无符号八进制数
+ %x	 格式化无符号十六进制数
+ %X	 格式化无符号十六进制数（大写）
+ %f	 格式化浮点数字，可指定小数点后的精度
+ %e	 用科学计数法格式化浮点数
+ %E	 作用同%e，用科学计数法格式化浮点数
+ %g	 %f和%e的简写
+ %G	 %f 和 %E 的简写
+ %p	 用十六进制数格式化变量的地址
+
+*	定义宽度或者小数点精度
+-	用做左对齐
++	在正数前面显示加号( + )
+<sp>	在正数前面显示空格
+#	在八进制数前面显示零('0')，在十六进制前面显示'0x'或者'0X'(取决于用的是'x'还是'X')
+0	显示的数字前面填充'0'而不是默认的空格
+%	'%%'输出一个单一的'%'
+(var)	映射变量(字典参数)
+m.n.	m 是显示的最小总宽度,n 是小数点后的位数(如果可用的话)
+
+f-string
+name = 'Runoob'
+>>> f'Hello {name}'  # 替换变量
+'Hello Runoob'
+>>> f'{1+2}'         # 使用表达式
+'3'
+>>> x = 1
+>>> print(f'{x+1=}')   # Python 3.8
+'x+1=2'
+
+
+
+
+编程:
+
+条件控制:
+if condition_1:
+    statement_block_1
+elif condition_2:
+    statement_block_2
+else:
+    statement_block_3
+1、每个条件后面要使用冒号 :，表示接下来是满足条件后要执行的语句块。
+2、使用缩进来划分语句块，相同缩进数的语句在一起组成一个语句块。
+3、在Python中没有switch – case语句。
+
+
+循环语句:(else语句执行完直接跳出)
+while 判断条件(condition)：
+    执行语句(statements)……
+
+while <expr>:
+    <statement(s)>
+else:
+    <additional_statement(s)>
+
+for <variable> in <sequence>:
+    <statements>
+else:
+    <statements>
+
+range()函数:如果你需要遍历数字序列，可以使用内置range()函数。它会生成数列
+range(begin,end,step)
+
+break 语句可以跳出 for 和 while 的循环体。如果你从 for 或 while 
+循环中终止，任何对应的循环 else 块将不执行。
+continue 语句被用来告诉 Python 跳过当前循环块中的剩余语句，然后继续
+进行下一轮循环
+
+pass 语句
+Python pass是空语句，是为了保持程序结构的完整性
+pass 不做任何事情，一般用做占位语句
+
