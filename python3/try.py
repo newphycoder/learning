@@ -1,0 +1,2 @@
+list 
+str = " ".join(list)

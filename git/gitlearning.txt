@@ -95,4 +95,19 @@ then write the name of the file which you want to ingnore
 
 
  
- 分支
+ 分支管理
+ git branch branchname	:创建分支		加参数 -d删除分支
+ git checkout branchname:切换分支		加参数 -b创建分支并转至
+ git merge				:合并分支
+ git branch 			:列出分支
+
+
+git tag :显示标签
+git tag -a <tagname> -m "runoob.com标签"指定标签信息命令
+
+
+ssh-keygen -t rsa 生成ssh钥对
+远程仓库
+git remote add [shortname] [url]
+ex:root@121.199.48.230:/git/try.git
+git init --bare reponame.git 远程仓库建立
